@@ -1,34 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.io.BufferedWriter" %>
-<%@page import="java.io.FileWriter" %>
-<%@page import="java.util.Date" %>
-<%@page import="java.util.Scanner" %>
-<%
-/** Log POSTs at / to a file **/
-if ("POST".equalsIgnoreCase(request.getMethod())) {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("/tmp/sample-app.log", true));
-        Scanner scanner = new Scanner(request.getInputStream()).useDelimiter("\\A");
-	if(scanner.hasNext()) {
-		String reqBody = scanner.next();
-		writer.write(String.format("%s Received message: %s.\n", (new Date()).toString(), reqBody));
-	}
-        writer.flush();
-        writer.close();
-	
-} else {
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <!--
-    Copyright 2010-2011 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
-    Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
-
-        http://aws.Amazon/apache2.0/
-
-    or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-  -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Welcome</title>
   <style>
@@ -105,18 +78,17 @@ if ("POST".equalsIgnoreCase(request.getMethod())) {
 </head>
 <body id="sample">
   <div class="textColumn">
-    <h1>Hello AWS World  Running on Linux  On port 80</h1>
+    <h1>Hello AWS World  Running on Window On port 80</h1>
   </div>
   
   <div class="linksColumn"> 
     <h2>Screen Shots</h2>
     <ul>
-      <li><a href="http://aws.amazon.com/elasticbeanstalk/ug/">screen-shot1</a></li>
-      <li><a href="http://aws.amazon.com/elasticbeanstalk/concepts/">screen-shot2</a></li>
-      <li><a href="http://aws.amazon.com/elasticbeanstalk/deployment/">screen-shot3</a></li>
+      <li><a href="https://assignementscreenshots.s3-ap-southeast-1.amazonaws.com/screen-shot1.png">screen-shot1</a></li>
+      <li><a href="https://assignementscreenshots.s3-ap-southeast-1.amazonaws.com/screen-shot2.png">screen-shot2</a></li>
+      <li><a href="https://assignementscreenshots.s3-ap-southeast-1.amazonaws.com/screen-shot3.png">screen-shot3</a></li>
     </ul>
   </div>
 </script>
 </body>
 </html>
-<% } %>
